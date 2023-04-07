@@ -1,9 +1,9 @@
 import './App.css';
 import React, {useState} from 'react'; 
-import TodoTable from './components/TodoTable';
-import NewTodoForm from './components/NewTodoForm';
+import { TodoTable } from './components/TodoTable';
+import { NewTodoForm } from './components/NewTodoForm';
 
-function App() {
+export const App = () => {
 
   const [showAddTodoForm, setShowAddTodoForm] = useState(false); 
 
@@ -14,7 +14,7 @@ function App() {
     {rowNumber: 4, rowDescription: "Charge phone battery", rowAssigned: "User One"}
   ]) 
 
-  const addTodo = (description, assigned) => {
+  const addTodo = (description: string, assigned: string) => {
     // this will start the unique identifire for each todo 
     let rowNumber = 0; 
     // if there are todos in the list then do this 
@@ -36,7 +36,7 @@ function App() {
       setTodos(todos => [...todos, newTodo])
   }
 
-  const deleteTodo = (deleteTodoRowNumber) => {
+  const deleteTodo = (deleteTodoRowNumber: number) => {
     // passes in the row number of the row to be deleted 
     // filtered will filter the row number out 
     let filtered = todos.filter(function(value) {
@@ -68,5 +68,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
